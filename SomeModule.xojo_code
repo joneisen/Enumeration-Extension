@@ -1,29 +1,18 @@
 #tag Module
 Protected Module SomeModule
 	#tag Method, Flags = &h0
-		Function SomeEnumToString(s as SomeEnum) As String
-		  Select Case s
-		  Case SomeEnum.Foo
-		    Return "Foo"
-		  Case SomeEnum.Bar
-		    Return "Bar"
-		  Case SomeEnum.Baz
-		    Return "Baz"
-		  End Select
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function toSomeEnum(extends s as String) As SomeEnum
-		  Select Case s
+		Sub StringValue(Extends  ByRef e As SomeEnum, Assigns value As String)
+		  Select Case value
 		  Case "Foo"
-		    Return SomeEnum.Foo
+		    e = SomeEnum.Foo
 		  Case "Bar"
-		    Return SomeEnum.Bar
+		    e = SomeEnum.Bar
 		  Case "Baz"
-		    Return SomeEnum.Baz
+		    e = SomeEnum.Baz
+		  Else // Set a default for an invalid input
+		    e = SomeEnum.Foo
 		  End Select
-		End Function
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

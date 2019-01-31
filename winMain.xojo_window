@@ -154,7 +154,7 @@ End
 #tag Events btnChange
 	#tag Event
 		Sub Action()
-		  TheEnumeration = txtEnumValue.Text.toSomeEnum
+		  TheEnumeration.StringValue = txtEnumValue.Text
 		  txtEnumValue.Text = ""
 		End Sub
 	#tag EndEvent
@@ -387,6 +387,13 @@ End
 	#tag ViewProperty
 		Name="TheEnumeration"
 		Group="Behavior"
-		Type="Integer"
+		InitialValue="SomeEnum.Foo"
+		Type="SomeEnum"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Foo"
+			"1 - Bar"
+			"2 - Baz"
+		#tag EndEnumValues
 	#tag EndViewProperty
 #tag EndViewBehavior
